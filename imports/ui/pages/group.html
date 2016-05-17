@@ -1,0 +1,130 @@
+<template name="group">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4>{{name}}<span class="label label-success">{{participantsCount}}</span></h4>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <span class="pull-left errors">{{errorMsg}}</span>
+            </div>
+            <div class="col-sm-2 group-img-wrapper">
+                <img src="{{logo}}" alt="{{name}}" class="img-responsive img-circle">
+                {{#if isCreator}}
+                <button class="delete-btn btn btn-danger btn-block">Delete group</button>
+                <h5>Start Pizza Day Event</h5>
+                <form class="start-event">
+                    <div class="input-group date">
+                        <input type="text" class="form-control datepicker" placeholder="Pick a date..."><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                    <input type="submit" class="start-event-btn btn btn-primary btn-block" value="Start Event">
+                </form>
+                {{/if}}
+            </div>
+            <div class="col-sm-10 group-details">
+                <div class="{{#if isCreator}}col-sm-4{{else}}col-sm-6{{/if}}">
+                    <h5>Group participants</h5>
+                    <ul class="participants">
+                        {{#if isCreator}}
+                        {{#each participants}}
+                            <li>
+                                <span class="fa fa-user pull-left"></span>
+                                <span>{{username}}</span>
+                                <span class="removeuser fa fa-user-times pull-right" title="remove user"></span>
+                            </li>
+                        {{/each}}
+                        {{else}}
+                            {{#each participants}}
+                                <li>
+                                    <span class="fa fa-user pull-left"></span>
+                                    <span>{{username}}</span>
+                                </li>
+                            {{/each}}
+                        {{/if}}
+                    </ul>
+                </div>
+                {{#if isCreator}}
+                <div class="col-sm-4">
+                    <h5>Add participants</h5>
+                    <ul class="participants">
+                        {{#each possibleParticipants}}
+                            <li>
+                                <span class="fa fa-user pull-left"></span>
+                                <span>{{username}}</span>
+                                <span class="adduser fa fa-user-plus pull-right" title="add user"></span>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{/if}}
+                <div class="{{#if isCreator}}col-sm-4{{else}}col-sm-6{{/if}}">
+                    <h5>Menu items</h5>
+                    <ul class="menu-items">
+                        {{#each menuItem}}
+                            <li class="row">
+                                <span class="fa fa-cutlery col-xs-1"></span>
+                                <span class="col-xs-6">{{name}}</span>
+                                <span class="col-xs-3">{{price}}$</span>
+                                {{#if isCreator ..}}
+                                    <span class="edit-item fa fa-pencil col-xs-1" title="edit menu item"></span>
+                                    <span class="remove-item fa fa-times col-xs-1" title="remove menu item"></span>
+                                {{else}}
+
+                                    <span class="edit-item fa fa-pencil col-xs-1 pull-right" title="edit menu item"></span>
+                                {{/if}}
+                            </li>
+                                <li class="coupons-wrapper">
+                                    <div class="coupon row">
+                                        <div class="col-xs-9">
+                                            {{#if isCreator ..}}
+                                                <button class="btn btn-success btn-block add-free-coupon">
+                                                    <span class="fa fa-tags"></span>
+                                                    <span>Free</span>
+                                                </button>
+                                            {{else}}
+                                                <button disabled class="btn btn-default btn-block">
+                                                    <span class="fa fa-tags"></span>
+                                                    <span>Free</span>
+                                                </button>
+                                            {{/if}}
+                                        </div>
+                                        <div class="col-xs-3 free-count">{{free}}</div>
+                                    </div>
+                                    <div class="coupon row">
+                                        <div class="col-xs-9">
+                                            {{#if isCreator ..}}
+                                                <button class="btn btn-success btn-block add-discount-coupon">
+                                                    <span class="fa fa-tags"></span>
+                                                    <span>-20%</span>
+                                                </button>
+                                            {{else}}
+                                                <button disabled class="btn btn-default btn-block">
+                                                    <span class="fa fa-tags"></span>
+                                                    <span>-20%</span>
+                                                </button>
+                                            {{/if}}
+                                        </div>
+                                        <div class="col-xs-3 discount-count">{{cupons}}</div>
+                                    </div>
+                                </li>
+                        {{/each}}
+                    </ul>
+                    <form class="add-menu-item">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><span class="fa fa-cutlery"></span></div>
+                                <input type="text" class="form-control new-item-name" placeholder="Item Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><span class="fa fa-usd"></span></div>
+                                <input type="number" class="form-control new-item-price" placeholder="Item Price">
+                            </div>
+                        </div>
+                        <input type="submit" class="submitter btn btn-success btn-block" value="Add">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

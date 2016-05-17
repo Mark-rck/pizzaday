@@ -1,0 +1,108 @@
+
+.groups-listing {
+     padding: 12px 0;
+ }
+
+.group-img-wrapper img {
+  margin: 0 auto;
+  max-width: 120px;
+  max-height: 120px;
+}
+
+.panel-body {
+  padding: 8px 0;
+}
+
+.label {
+  border-radius: 50%;
+  position: relative;
+  padding-top: 4px;
+  top: -8px;
+  left: 8px;
+}
+
+.fa-user, .fa-user-plus, .fa-user-times, .fa-cutlery, .fa-pencil, .fa-times {
+  position: relative;
+  top: 3px;
+}
+
+.fa-user-plus, .fa-user-times, .fa-pencil, .fa-times {
+  cursor: pointer;
+}
+
+
+.fa-user-plus:hover, .fa-pencil:hover {
+  color: #449d44;
+}
+
+.fa-user-times:hover, .fa-times:hover {
+  color: #d34836;
+}
+
+h5 {
+  text-align: center;
+}
+
+.participants, .menu-items {
+  padding-left: 0;
+  list-style-type: none;
+  li {
+    padding: 6px 8px;
+    border-radius: 4px;
+    margin: 0;
+    margin-bottom: 4px;
+    border: 1px solid #ccc;
+    height: 34px;
+    &:hover {
+      color: black;
+      border-color: gray;
+    }
+    span {
+      padding: 0;
+    }
+  }
+}
+
+.menu-items li {
+  padding-right:0;
+}
+
+.delete-btn {
+  margin: 0 auto;
+}
+
+form {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  margin-top: 12px;
+  .fa-cutlery{
+    top:0;
+  }
+}
+
+.start-event-btn {
+  margin-top: 8px;
+}
+
+.add-free-coupon {
+  margin-bottom: 4px;
+}
+
+li.coupons-wrapper {
+  height: auto;
+  padding-right: 8px;
+  margin-top: -8px;
+  border-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding-top: 12px;
+}
+
+.free-count, .discount-count {
+  padding-top: 6px;
+}
+
+.group-details {
+  padding: 0;
+}

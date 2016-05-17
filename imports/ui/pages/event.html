@@ -1,0 +1,124 @@
+<template name="event">
+    <div class="panel panel-primary row">
+        <div class="panel-heading">
+            <h4>Pizza Day {{date}} for {{grName}}</h4>
+        </div>
+        <div class="panel-body event-body">
+
+            <div class="row">
+                <span class="pull-left errors">{{errorMsg}}</span>
+            </div>
+            {{#if isPending self}}
+                {{> confirmDialog}}
+            {{else}}
+            <div class="row">
+            <div class="col-sm-2">
+                <h3 class="event-status">{{status}}</h3>
+                {{#if checkCreator self}}
+                    {{#if isNotDelivered}}
+                <form class="update-status">
+                    <div class="form-group">
+                        <select class="status-select form-control">
+                            <option selected>{{status}}</option>
+                            {{#each possibleStatuses}}
+                                <option>{{this}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <input type="submit" id="upd-status-btn" class="btn btn-primary btn-block" value="Update status">
+                </form>
+                    {{/if}}
+                    {{#if eventDone}}
+                        <button class="delete-evt btn btn-danger btn-block">Delete event</button>
+                    {{/if}}
+                {{/if}}
+            </div>
+            <div class="col-sm-10">
+                <div class="col-sm-6">
+                    <h5 class="subheading">Event participants</h5>
+                    <ul class="participants">
+                        {{#each part}}
+                            <li>
+                                {{#if checkCreator _id}}
+                                    <span class="fa fa-star pull-left {{#if isOrdering _id}}info{{/if}}{{#if hasOrdered _id}}success{{/if}}"></span>
+                                {{else}}
+                                    <span class="fa fa-user pull-left {{#if isPending _id}}pending{{/if}}{{#if isOrdering _id}}info{{/if}}{{#if hasOrdered _id}}success{{/if}}"></span>
+                                {{/if}}
+                                <span>{{username this}}</span>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <h5 class="subheading">Items ordered</h5>
+                    <ul class="cart">
+                        {{#each orderedItems}}
+                            <li class="row">
+                                <span class="fa fa-cutlery col-xs-1"></span>
+                                <span class="col-xs-7">{{name}}</span>
+                                <span class="col-xs-3">{{quantity}}</span>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+            </div>
+                <div class="row">
+                    {{#if hasOrdered self}}
+                        {{#if eventOrdered}}
+                            {{> thankyou}}
+                        {{else}}
+                            {{> awaitOthers}}
+                        {{/if}}
+                    {{else}}
+                    <h5 class="subheading">Place your order</h5>
+                    <form class="user-order col-md-8 col-md-offset-2">
+                        <div class="row order-heading">
+                            <div class="col-xs-2 col-xs-push-1">Name</div>
+                            <div class="col-xs-2 col-xs-push-1">Price</div>
+                            <div class="col-xs-2 col-xs-push-1">Cupons</div>
+                            <div class="col-xs-1 col-xs-push-1">Free</div>
+                            <div class="col-xs-2 col-xs-push-1">Quantity</div>
+                        </div>
+                        {{#each menuItems}}
+                            <div class="row order-item">
+                                <div class="col-xs-1 checkbox-wrapper"><input type="checkbox" data-item="{{id}}"></div>
+                                <div class="col-xs-2 item-name">{{name}}</div>
+                                <div class="col-xs-2 item-price">{{price}}$</div>
+                                <div class="col-xs-2 item-cupons">{{cupons}}</div>
+                                <div class="col-xs-1 item-free">{{free}} </div>
+                                <div class="col-xs-2 quantity-wrapper"><input class="item-count form-control" min="1" type="number" value="1"></div>
+                                
+                            </div>
+                        {{/each}}
+                        <div class="col-xs-2">Cheque</div>
+                        <div class="col-xs-2 ">{{userTotal}}$ </div>
+                        <div class="row"><input type="submit" class="btn btn-success btn-block" value="Submit my order"></div>
+                    </form>
+                    {{/if}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</template>
+ 
+
+<template name="confirmDialog">
+    <h3 class="text-center"><b>{{creatorName}}</b> has invited you to Pizza Day event at {{date}}</h3>
+    <button class="confirm btn btn-block btn-success">Confirm</button>
+    <button class="refuse btn btn-danger btn-block">Refuse</button>
+</template>
+
+<template name="thankyou">
+    <div class="alert alert-success order-msg">
+        <h2>Thank You!</h2>
+        <p>Your order was submitted, details were sent to your email. Check it!</p>
+    </div>
+</template>
+
+<template name="awaitOthers">
+    <div class="alert alert-info order-msg">
+        <h2>Thank You!</h2>
+        <p>Your order was submitted. You will receive a confirmation email as soon as all the other participants will finish ordering</p>
+    </div>
+</template> 

@@ -1,0 +1,155 @@
+
+.groups-listing {
+    padding: 12px;
+}
+
+.fa-user, .fa-user-plus, .fa-user-times, .fa-cutlery, .fa-pencil, .fa-times, .fa-star {
+  position: relative;
+  top: 3px;
+}
+
+.fa-user-plus, .fa-user-times, .fa-pencil, .fa-times {
+  cursor: pointer;
+}
+
+
+.fa-user-plus:hover, .fa-pencil:hover {
+  color: #449d44;
+}
+
+.fa-user-times:hover, .fa-times:hover {
+  color: #d34836;
+}
+
+h5 {
+  text-align: center;
+}
+
+.participants, .menu-items {
+  padding-left: 0;
+  list-style-type: none;
+  li {
+    padding: 6px 8px;
+    border-radius: 4px;
+    margin: 0;
+    margin-bottom: 4px;
+    border: 1px solid #ccc;
+    height: 34px;
+    &:hover {
+      color: black;
+      border-color: gray;
+    }
+    span {
+      padding: 0;
+    }
+  }
+}
+
+.menu-items li {
+  padding-right:0;
+}
+
+.delete-btn {
+  margin: 0 auto;
+}
+
+form {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  margin-top: 12px;
+  .fa-cutlery{
+    top:0;
+  }
+}
+
+.pending {
+  color: gray !important;
+}
+
+.success {
+  color: #449d44 !important;
+}
+.info {
+  color: #5bc0de !important;
+}
+
+.user-order{
+  padding-right: 30px;
+  border: 0;
+  input[type='submit']{
+    max-width: 200px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+}
+
+.order-heading {
+  color: #286090;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.subheading {
+  font-weight: 700;
+  color: dimgrey;
+}
+
+.checkbox-wrapper {
+  text-align: right;
+}
+
+.quantity-wrapper {
+  padding-top: 0 !important;
+  input {
+    padding: 0 12px;
+  }
+}
+
+.cart {
+  list-style-type: none;
+}
+
+.user-total{
+  padding: 6px 12px;
+  line-height: 1.42857143;
+}
+
+.event-status {
+  border-radius: 6px;
+  color: green;
+  font-weight: 600;
+  text-align: center;
+  padding: 6px 0;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.panel-body.event-body {
+  padding: 6px 15px;
+}
+
+.order-item {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: -15px;
+  margin-right:-30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.disclaimer {
+  font-style: italic;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+.order-msg {
+  margin: 12px;
+}
+
+.confirm, .refuse {
+  max-width: 200px;
+  margin: 0 auto;
+}
