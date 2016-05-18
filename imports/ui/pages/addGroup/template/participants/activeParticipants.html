@@ -1,0 +1,19 @@
+
+<template name ="activeParticipants">
+
+    <div class="col-md-6">
+              <h4>Participants<span class="label label-success"></span></h4>        
+                <ul class="group-participants">
+                    {{#each participants}}
+                        {{> aParticipant}}
+                    {{/each}}
+                </ul>
+     </div>
+    
+</template>
+
+<template name="aParticipant">
+    <li>
+        <span class="fa fa-user pull-left"></span><span>{{username}}</span><span class="removeuser fa fa-user-times pull-right"></span>
+    </li>
+</template>

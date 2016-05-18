@@ -1,0 +1,20 @@
+
+
+<template name = "possibleParticipants">    
+
+         <div class="col-md-6">
+            <h4>Add participants</h4>
+                <ul class="possible-participants-listing">
+                        {{#each people}}
+                            {{> pParticipant}}
+                        {{/each}}
+                 </ul>
+         </div> 
+
+</template>
+
+<template name="pParticipant">
+    <li>
+        <span class="fa fa-user pull-left"></span><span>{{username}}</span><span class="adduser fa fa-user-plus pull-right"></span>
+    </li>
+</template>

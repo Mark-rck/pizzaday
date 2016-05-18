@@ -8,7 +8,7 @@ import '../../ui/layouts/parties/navBar.js';
 import '../../ui/layouts/homeLayout.js';
 import '../../ui/layouts/parties/header.js';
 
-import '../../ui/pages/addGroup.js' ;
+import '../../ui/pages/addGroup/indexAddGroup.js' ;
 
 import '../../ui/pages/groups.js' ;
 import '../../ui/pages/events.js' ;
